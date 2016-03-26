@@ -209,8 +209,10 @@ fi
 
 
 #Uso esse último sed para eliminar acentos pois vou colocar esse script junto com o conky, combinado com uma fonte que não permite acentuação
-retornaMenu|sed 's/+/\n/g'|sed  'y/áÁàÀãÃâÂéÉêÊíÍóÓõÕôÔúÚñÑçÇ/aAaAaAaAeEeEiIoOoOoOuUnNcC/' 
+#retornaMenu|sed 's/+/\n/g'|sed  'y/áÁàÀãÃâÂéÉêÊíÍóÓõÕôÔúÚñÑçÇ/aAaAaAaAeEeEiIoOoOoOuUnNcC/' 
 
+#Versão com acentos
+retornaMenu|sed 's/+/\n/g'
 #echo -e "\nData de hoje: $(date +%d-%m-%Y)"
 #coloque isso lá no conkyrc antes do ru
 #${font Antique Type:size=8}${color #993300}$stippled_hr
