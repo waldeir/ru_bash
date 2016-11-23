@@ -4,7 +4,7 @@ Mais um script para baixar o cardápio do ru da ufpa e mostrá-lo em sua linha d
 
 
 # Para usá-lo faça o seguinte:
-1. Coloque este arquivo na pasta '.scripts' em seu diretório home;
+1. Coloque o arquivo 'ru' na pasta '.scripts' em seu diretório home;
 (Caso a pasta não exista crie)
 
 2. Dê permissão de execução a este arquivo;
@@ -15,7 +15,7 @@ Mais um script para baixar o cardápio do ru da ufpa e mostrá-lo em sua linha d
 PATH=$PATH:~/.scripts
 ```
 
-4. Depois disso é só abrir um NOVO terminal, digitar "ru" sem aspas e dar enter.
+4. Depois disso é só abrir um NOVO terminal, digitar 'ru' sem aspas e dar enter.
 
 #Como funciona
 
