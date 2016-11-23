@@ -9,7 +9,7 @@ Mais um script para baixar o cardápio do ru da ufpa e mostrá-lo em sua linha d
 
 2. Dê permissão de execução a este arquivo;
 
-3. Acrescente a seguite linha no arquivo .bashrc, que fica em seu diretório home:
+3. Acrescente a seguite linha no arquivo '.bashrc', que fica em seu diretório home:
 
 ```
 PATH=$PATH:~/.scripts
