@@ -120,9 +120,12 @@ esac
 
 #dialog --title $DIA --msgbox $MENU 0 0
 MENU=$(retornaMenu)
-MENU=$(echo $MENU| sed 's/\+/\n/g')
+MENU=$(echo "$MENU"| sed 's/\+/\n/g')
 
-eval dialog --title 'Perfil' --msgbox \' $MENU\' 0 0
+#Essas aspas escapadas que eu coloquei no comando dialog foram por
+#causa do eval. Se tirar elas o eval não fornece os parâmetros corretamente
+#para o dialog. As aspas duplas em "$MENU" preservam os linefeeds da variável
+eval dialog --title 'Cardápio' --msgbox \' "$MENU" \' 0 0
 
 done
 }
