@@ -80,7 +80,12 @@ gru() {
 while [ 0 -eq 0 ]
 do
 
-DIA=$(dialog --stdout --title 'RU' --menu 'Escolha o dia da semana' 0 0 0 Segunda '' Terça '' Quarta '' Quinta '' Sexta '')
+if [ -z $DIA ]
+then
+DIA=Segunda
+fi
+
+DIA=$(dialog --stdout --title 'RU' --default-item $DIA --menu 'Escolha o dia da semana' 0 0 0 Segunda '' Terça '' Quarta '' Quinta '' Sexta '')
 
 
 
