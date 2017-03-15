@@ -23,8 +23,8 @@
 # $HOME/.scripts/restaurante/temp                                           #
 #############################################################################
 
+#Configure o diretório padrão onde os arquivos vão ficar
 DEST_DIR="$HOME/.scripts"
-DEST_DIR="/i/conf/bin"
 
 donwloadAndIsolateMenu() {
 
