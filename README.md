@@ -35,3 +35,5 @@ $HOME/.scripts/restaurante/temp
 ```
 
 por isso podemos usá-lo offline. 
+
+OBS: é possível modificar o diretório onde os arquivos serão instalados por meio da variável "DEST_DIR", dentro do script.
