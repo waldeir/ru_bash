@@ -22,17 +22,21 @@
 # Função que que baixa o menu e armazena no arquivo                         #
 # $HOME/.scripts/restaurante/temp                                           #
 #############################################################################
+
+DEST_DIR="$HOME/.scripts"
+DEST_DIR="/i/conf/bin"
+
 donwloadAndIsolateMenu() {
 
-wget -q 'http://ru.ufpa.br/index.php?option=com_content&view=article&id=7' -O $HOME/.scripts/restaurante/index.html
+wget -q 'http://ru.ufpa.br/index.php?option=com_content&view=article&id=7' -O $DEST_DIR/restaurante/index.html
 if [ $? -ne 0 ]
 then
-	rm $HOME/.scripts/restaurante/index.html
+	rm $DEST_DIR/restaurante/index.html
 	echo Erro ao baixar o novo menu. Verifique a conexão com a internet.
 	exit 2
 fi
 #Isolando a tabela das refeições do resto do .html#############################
-sed -n '/<tbody>/,/<\/tbody>/p' $HOME/.scripts/restaurante/index.html|
+sed -n '/<tbody>/,/<\/tbody>/p' $DEST_DIR/restaurante/index.html|
 sed 's/<\/\?tr[^>]*>/|/g' |
 sed 's/<\/td[^>]*>/+/g'|
 sed 's/<[^>]*>//g'|
@@ -41,8 +45,8 @@ sed '/|/d'|
 sed 's/^ *//g'|
 sed 's/\r/\n/'|
 sed '/^$/d'| 
-sed '/REFEIÇÃO DO DIA/,//d'> $HOME/.scripts/restaurante/temp
-echo "THE_END" >> $HOME/.scripts/restaurante/temp
+sed '/REFEIÇÃO DO DIA/,//d'> $DEST_DIR/restaurante/temp
+echo "THE_END" >> $DEST_DIR/restaurante/temp
 }
 ###############################################################################
 
@@ -52,21 +56,21 @@ retornaMenu() {
 case $day in
 
 	1)
-		sed -n '/Segunda/,/Terça/p' $HOME/.scripts/restaurante/temp |sed '/Terça/d'
+		sed -n '/Segunda/,/Terça/p' $DEST_DIR/restaurante/temp |sed '/Terça/d'
 		;;
 	2)
-		sed -n '/Terça/,/Quarta/p' $HOME/.scripts/restaurante/temp |sed '/Quarta/d'
+		sed -n '/Terça/,/Quarta/p' $DEST_DIR/restaurante/temp |sed '/Quarta/d'
 		;;
 	3)
-		sed -n '/Quarta/,/Quinta/p' $HOME/.scripts/restaurante/temp |sed '/Quinta/d'
+		sed -n '/Quarta/,/Quinta/p' $DEST_DIR/restaurante/temp |sed '/Quinta/d'
 		;;
 
 	4)
-		sed -n '/Quinta/,/Sexta/p' $HOME/.scripts/restaurante/temp |sed '/Sexta/d'
+		sed -n '/Quinta/,/Sexta/p' $DEST_DIR/restaurante/temp |sed '/Sexta/d'
 		;;
 
 	5)
-		sed -n '/Sexta/,/THE_END/p' $HOME/.scripts/restaurante/temp |sed '/THE_END/d'
+		sed -n '/Sexta/,/THE_END/p' $DEST_DIR/restaurante/temp |sed '/THE_END/d'
 		;;
 
 	*)
@@ -158,18 +162,18 @@ echo ru 3	Mostra o cardápio da terça feira
 # A linha abaixo cria o diretório 'restaurante' se ele não existir.
 # É neste diretório que ficarão arquivos temporários que o script
 # usa.
-[ ! -e $HOME/.scripts/restaurante/ ] && [ $(mkdir $HOME/.scripts/restaurante/) ]
+[ ! -e $DEST_DIR/restaurante/ ] && [ $(mkdir $DEST_DIR/restaurante/) ]
 
 ##########################VERIFICAÇÃO########################################
 #Verifica se a página do ru já foi baixada alguma vez, se não, baixa o menu.#
 #Verifica se o último cardápio baixado é dessa semana, caso contrário,      #
 #baixa o cardápio atual.                                                    #
 
-if  [ ! -e $HOME/.scripts/restaurante/index.html ]
+if  [ ! -e $DEST_DIR/restaurante/index.html ]
 then
 	donwloadAndIsolateMenu
 
-elif [ $(date +%W) -ne $(date -r $HOME/.scripts/restaurante/index.html +%W 2>/dev/null) ]
+elif [ $(date +%W) -ne $(date -r $DEST_DIR/restaurante/index.html +%W 2>/dev/null) ]
 then
 	donwloadAndIsolateMenu
 fi
