@@ -43,7 +43,7 @@ OBS: é possível modificar o diretório onde os arquivos serão instalados por 
 
 # Modo Gráfico
 
-Criado para acessar os menus da semana mais rápido, esse modo só é acessível se você tiver o programa "dialog" instalado.
+Criado para mostrar os menus da semada de forma organizada, esse modo só é acessível se você tiver o programa "dialog" instalado.
 
 O modo gráfico é ativado com o seguinte comando:
 
