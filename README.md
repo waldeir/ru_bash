@@ -1,5 +1,5 @@
 # ru_bash
-Mais um script para baixar o cardápio do ru da ufpa e mostrá-lo em sua linha de comando
+Um script para baixar o cardápio do ru da ufpa e mostrá-lo em sua linha de comando offline
 
 
 
