@@ -150,8 +150,8 @@ echo '  -h, --help	mostra esta ajuda'
 echo '   K		número inteiro (2-6) que especifica o dia da semana do qual o cardápio será mostrado.'
 
 echo Exemplos:
-echo ru 2 	Mostra o cardápio da segunda feira
-echo ru 3	Mostra o cardápio da terça feira
+echo ru 2 	\#Mostra o cardápio da segunda feira
+echo ru 3	\#Mostra o cardápio da terça feira
 }
 ############################################################################
 
