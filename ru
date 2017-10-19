@@ -44,8 +44,8 @@ sed 's/-/\n/g'|
 sed '/|/d'|
 sed 's/^ *//g'|
 sed 's/\r/\n/'|
-sed '/^$/d'| 
-sed '/REFEIÇÃO DO DIA/,//d'> $DEST_DIR/restaurante/temp
+sed '/^$/d'|
+sed '/CARDÁPIO DO DIA/,//d'> $DEST_DIR/restaurante/temp
 echo "THE_END" >> $DEST_DIR/restaurante/temp
 }
 ###############################################################################
@@ -70,7 +70,7 @@ case $day in
 		;;
 
 	5)
-		sed -n '/Sexta/,/^DIA/p' $DEST_DIR/restaurante/temp |sed '/^DIA /d'
+		sed -n '/Sexta/,/THE_END/p' $DEST_DIR/restaurante/temp |sed '/THE_END/d'
 		;;
 
 	*)
