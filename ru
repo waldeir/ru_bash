@@ -56,21 +56,21 @@ retornaMenu() {
 case $day in
 
 	1)
-		sed -n '/Segunda/,/Terça/p' $DEST_DIR/restaurante/temp |sed '/Terça/d'
+		sed -n '/SEGUNDA/,/TERÇA/p' $DEST_DIR/restaurante/temp |sed '/TERÇA/d'
 		;;
 	2)
-		sed -n '/Terça/,/Quarta/p' $DEST_DIR/restaurante/temp |sed '/Quarta/d'
+		sed -n '/TERÇA/,/QUARTA/p' $DEST_DIR/restaurante/temp |sed '/QUARTA/d'
 		;;
 	3)
-		sed -n '/Quarta/,/Quinta/p' $DEST_DIR/restaurante/temp |sed '/Quinta/d'
+		sed -n '/QUARTA/,/QUINTA/p' $DEST_DIR/restaurante/temp |sed '/QUINTA/d'
 		;;
 
 	4)
-		sed -n '/Quinta/,/Sexta/p' $DEST_DIR/restaurante/temp |sed '/Sexta/d'
+		sed -n '/QUINTA/,/SEXTA/p' $DEST_DIR/restaurante/temp |sed '/SEXTA/d'
 		;;
 
 	5)
-		sed -n '/Sexta/,/THE_END/p' $DEST_DIR/restaurante/temp |sed '/THE_END/d'
+		sed -n '/SEXTA/,/THE_END/p' $DEST_DIR/restaurante/temp |sed '/THE_END/d'
 		;;
 
 	*)
