@@ -1,7 +1,7 @@
 # ru_bash
 Um script para baixar o cardápio do ru da ufpa e mostrá-lo em sua linha de comando offline.
 
-
+![](ru.gif)
 
 # Para usá-lo faça o seguinte:
 1. Coloque o arquivo 'ru' na pasta '.scripts' em seu diretório home;
