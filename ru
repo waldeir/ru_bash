@@ -18,10 +18,6 @@
 #	4. Depois disso é só abrir um NOVO terminal, digitar "ru" sem aspas e dar enter.
 
 #########################FUNÇÕES USADAS NO PROGRAMA##########################
-#############################################################################
-# Função que que baixa o menu e armazena no arquivo                         #
-# $HOME/.scripts/restaurante/temp                                           #
-#############################################################################
 
 #Configure o diretório padrão onde os arquivos vão ficar
 DEST_DIR="$HOME/.scripts"
@@ -158,7 +154,8 @@ echo Exemplos:
 echo ru 2 	\#Mostra o cardápio da segunda feira
 echo ru 3	\#Mostra o cardápio da terça feira
 }
-############################################################################
+##################FIM DAS FUNÇÕES###########################################
+
 
 #====================#
 #	INÍCIO       #
