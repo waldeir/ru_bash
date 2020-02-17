@@ -130,8 +130,12 @@ COLUNASF=(`echo "${MENUDODIA}"|sed -n '/F+/='`)
 CABECALHO=(DIA: ALMOÇO: JANTAR:)
 for C in `seq 0 2`
 do
-    #echo -e "\n\033[1m${CABECALHO[$C]}\033[0m"
-    echo -e "\n${CABECALHO[$C]}\n"
+    if [ $BOLD = 'NOBOLD' ]
+    then
+        echo -e "\n${CABECALHO[$C]}\n"
+    else
+        echo -e "\n\033[1m${CABECALHO[$C]}\033[0m"
+    fi
     echo "${MENUDODIA}"|
     sed -n "${COLUNASI[$C]},${COLUNASF[$C]} p"|
     sed 's/\(I+\|F+\)//g' |
@@ -210,6 +214,7 @@ echo '  -f		força baixar o cardápio atual'
 echo '  -g		entra no modo gráfico'
 echo '  -h, --help	mostra esta ajuda'
 echo '   K		número inteiro (2-6) que especifica o dia da semana do qual o cardápio será mostrado.'
+echo '  -b              desativa a impressão em negrito para o cabeçalho'
 
 echo Exemplos:
 echo ru 2 	\#Mostra o cardápio da segunda feira
@@ -249,7 +254,7 @@ then
 fi
 #########################FIM DA VERIFICAÇÃO###############################
 
-
+BOLD='YESBOLD' # Faz o cabeçalho ficar em negrito
 
 # Testando o número de argumentos passados ao script, se for maior 
 # que 1 exibe uma mensagem de erro
@@ -277,12 +282,17 @@ then
 	exit 0
 elif [ $1 = '-g' ]
 then
+	BOLD='NOBOLD' # Se o negrito não for desativado caracteres estranhos aparecem no modo gráfico.
 	gru
 	exit 0
 elif [ $1 = '-h' -o $1 = '--help' ]
 then
 	Ajuda
 	exit 0
+elif [ $1 = '-b' ]
+then
+	BOLD='NOBOLD'
+	day=$(date +%u)
 else
 	echo -e "Erro: Argumento '$1' inválido!\n"
 	Ajuda
