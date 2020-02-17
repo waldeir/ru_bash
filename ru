@@ -85,27 +85,60 @@ retornaMenu() {
 case $day in
 
 	1)
-		sed -n '/SEGUNDA/,/TERÇA/p' $DEST_DIR/restaurante/temp |sed '/TERÇA/d'
+		L=1
+		imprimeMenu
 		;;
 	2)
-		sed -n '/TERÇA/,/QUARTA/p' $DEST_DIR/restaurante/temp |sed '/QUARTA/d'
+		L=2
+		imprimeMenu
 		;;
 	3)
-		sed -n '/QUARTA/,/QUINTA/p' $DEST_DIR/restaurante/temp |sed '/QUINTA/d'
+		L=3
+		imprimeMenu
 		;;
 
 	4)
-		sed -n '/QUINTA/,/SEXTA/p' $DEST_DIR/restaurante/temp |sed '/SEXTA/d'
+		L=4
+		imprimeMenu
 		;;
 
 	5)
-		sed -n '/SEXTA/,/THE_END/p' $DEST_DIR/restaurante/temp |sed '/THE_END/d'
+		L=5
+		imprimeMenu
 		;;
 
 	*)
 		echo "O ru não funciona aos finais de semana"
 		;;
 esac
+}
+
+# Imprime o cardápio conforme o dia da semana detectado em retornaMenu()
+imprimeMenu() {
+
+LINESI=(`sed -n '/I|/=' $RU_TABELA`)
+LINESF=(`sed -n '/F|/=' $RU_TABELA`)
+
+NLINES=${#LINES[*]}
+
+MENUDODIA=`sed -n "${LINESI[$L]},${LINESF[$L]} p" $RU_TABELA`
+
+COLUNASI=(`echo "${MENUDODIA}"|sed -n '/I+/='`)
+COLUNASF=(`echo "${MENUDODIA}"|sed -n '/F+/='`)
+
+
+CABECALHO=(DIA: ALMOÇO: JANTAR:)
+for C in `seq 0 2`
+do
+    #echo -e "\n\033[1m${CABECALHO[$C]}\033[0m"
+    echo -e "\n${CABECALHO[$C]}\n"
+    echo "${MENUDODIA}"|
+    sed -n "${COLUNASI[$C]},${COLUNASF[$C]} p"|
+    sed 's/\(I+\|F+\)//g' |
+    sed '/^$/d'
+done
+
+
 }
 
 #Função para Entrar no modo gráfico#############################################
