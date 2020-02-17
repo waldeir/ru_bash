@@ -32,8 +32,8 @@ downloadMenu() {
 wget -q 'http://ru.ufpa.br/index.php?option=com_content&view=article&id=7' -O $INDEX
 if [ $? -ne 0 ]
 then
-	rm $DEST_DIR/restaurante/index.html
-	echo Erro ao baixar o novo menu. Verifique a conexão com a internet.
+	rm $INDEX
+	echo Erro ao baixar o novo menu. A página do restaurante pode estar indisponível ou você não tem internet.
 	exit 2
 fi
 #Isolando a tabela das refeições do resto do .html#############################
