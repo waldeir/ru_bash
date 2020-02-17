@@ -36,19 +36,47 @@ then
 	echo Erro ao baixar o novo menu. A página do restaurante pode estar indisponível ou você não tem internet.
 	exit 2
 fi
-#Isolando a tabela das refeições do resto do .html#############################
-sed -n '/<tbody>/,/<\/tbody>/p' $DEST_DIR/restaurante/index.html|
-sed 's/<\/\?tr[^>]*>/|/g' |
-sed 's/<\/td[^>]*>/+/g'|
-sed 's/<[^>]*>//g'|
-sed 's/-/\n/g'|
-sed '/|/d'|
-sed 's/^ *//g'|
-sed 's/\r/\n/'|
-sed '/^$/d'|
-sed '/CARDÁPIO DO DIA/,//d'> $DEST_DIR/restaurante/temp
-echo "THE_END" >> $DEST_DIR/restaurante/temp
 }
+
+
+# Isolando as tabelas da página do resto do html#############################
+isolarMenu() {
+sed -n '/<tbody>/,/<\/tbody>/p'  $INDEX|
+sed 's/<tbody>/Itbody/g
+    s/<\/tbody>/Ftbody/g
+    s/<tr[^>]*>/I|/g
+    s/<\/tr[^>]*>/F|/g
+    s/<td[^>]*>/I+/g
+    s/<\/td[^>]*>/F+/g
+    s/<[^>]*>//g
+    s/\r//g
+    s/^ *//g
+    /^$/d' > $TABELAS
+# Encontrando e isolando a tabela do ru
+# Assumindo que a maior tabela é a correta 
+
+INITS=$(sed -n '/Itbody/=' $TABELAS)
+ENDS=$(sed -n '/Ftbody/=' $TABELAS)
+NTABLES=$(sed -n '/Ftbody/=' $TABELAS| wc -l)
+
+LENTemp=0
+
+for i in $(seq 1 $NTABLES)
+do
+        INITT=$(echo $INITS|cut -d' ' -f$i)
+        ENDT=$(echo $ENDS|cut -d' ' -f$i)
+        LEN=$((ENDT - INITT))
+        if [ $LEN -gt $LENTemp ]
+        then
+                LENTemp=$LEN
+                RUTableIN=$INITT
+                RUTableEND=$ENDT
+        fi
+done
+
+sed -n "$RUTableIN,$RUTableEND p" $TABELAS > $RU_TABELA
+}
+
 ###############################################################################
 
 #Função que retorna o menu com o símbolo '+' marcando os lugares onde haverá 
