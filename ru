@@ -25,11 +25,15 @@
 
 #Configure o diretório padrão onde os arquivos vão ficar
 DEST_DIR="$HOME/.scripts"
+INDEX=$DEST_DIR/restaurante/index.html
+TABELAS=$DEST_DIR/restaurante/tabelas.txt
+RU_TABELA=$DEST_DIR/restaurante/ruTabela.txt
 
 # Função que que baixa o menu e armazena num arquivo  para ser lido offline           #
 downloadMenu() {
 
-wget -q 'http://ru.ufpa.br/index.php?option=com_content&view=article&id=7' -O $DEST_DIR/restaurante/index.html
+
+wget -q 'http://ru.ufpa.br/index.php?option=com_content&view=article&id=7' -O $INDEX
 if [ $? -ne 0 ]
 then
 	rm $DEST_DIR/restaurante/index.html
@@ -170,12 +174,12 @@ echo ru 3	\#Mostra o cardápio da terça feira
 #Verifica se o último cardápio baixado é dessa semana, caso contrário,      #
 #baixa o cardápio atual.                                                    #
 
-if  [ ! -e $DEST_DIR/restaurante/index.html ]
+if  [ ! -e $INDEX ]
 then
 	downloadMenu
 	isolarMenu
 
-elif [ $(date +%W) -ne $(date -r $DEST_DIR/restaurante/index.html +%W 2>/dev/null) ]
+elif [ $(date +%W) -ne $(date -r $INDEX +%W 2>/dev/null) ]
 then
 	downloadMenu
 	isolarMenu
