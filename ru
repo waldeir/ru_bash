@@ -27,7 +27,7 @@
 DEST_DIR="$HOME/.scripts"
 
 # Função que que baixa o menu e armazena num arquivo  para ser lido offline           #
-donwloadMenu() {
+downloadMenu() {
 
 wget -q 'http://ru.ufpa.br/index.php?option=com_content&view=article&id=7' -O $DEST_DIR/restaurante/index.html
 if [ $? -ne 0 ]
