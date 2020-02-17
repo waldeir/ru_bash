@@ -26,7 +26,8 @@
 #Configure o diretório padrão onde os arquivos vão ficar
 DEST_DIR="$HOME/.scripts"
 
-donwloadAndIsolateMenu() {
+# Função que que baixa o menu e armazena num arquivo  para ser lido offline           #
+donwloadMenu() {
 
 wget -q 'http://ru.ufpa.br/index.php?option=com_content&view=article&id=7' -O $DEST_DIR/restaurante/index.html
 if [ $? -ne 0 ]
@@ -171,11 +172,18 @@ echo ru 3	\#Mostra o cardápio da terça feira
 
 if  [ ! -e $DEST_DIR/restaurante/index.html ]
 then
-	donwloadAndIsolateMenu
+	downloadMenu
+	isolarMenu
 
 elif [ $(date +%W) -ne $(date -r $DEST_DIR/restaurante/index.html +%W 2>/dev/null) ]
 then
-	donwloadAndIsolateMenu
+	downloadMenu
+	isolarMenu
+fi
+
+if [ ! -e $RU_TABELA -o ! -e $TABELAS ]
+then
+	isolarMenu
 fi
 #########################FIM DA VERIFICAÇÃO###############################
 
@@ -202,7 +210,8 @@ then
 
 elif [ $1 = '-f' ]
 then
-	donwloadAndIsolateMenu
+	downloadMenu
+	isolarMenu
 	exit 0
 elif [ $1 = '-g' ]
 then
