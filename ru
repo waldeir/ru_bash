@@ -79,8 +79,8 @@ sed -n "$RUTableIN,$RUTableEND p" $TABELAS > $RU_TABELA
 
 ###############################################################################
 
-#Função que retorna o menu com o símbolo '+' marcando os lugares onde haverá 
-#quebra de linhas.
+# Função que retorna o menu do dia
+
 retornaMenu() {
 case $day in
 
