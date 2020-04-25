@@ -207,18 +207,19 @@ done
 
 #Mostra a ajuda do programa################################################
 Ajuda() {
-echo Uso: ru [OPÇÃO]
+echo Uso: ru [Opções] 
 echo Mostra o cardápio do ru da UFPA em um dia da semana.
 echo -e ''
 echo '  -f		força baixar o cardápio atual'
 echo '  -g		entra no modo gráfico'
 echo '  -h, --help	mostra esta ajuda'
-echo '   K		número inteiro (2-6) que especifica o dia da semana do qual o cardápio será mostrado.'
+echo '  -d K		dia semana do qual o cardápio será mostrado, K pode ser um número inteiro de 2 até 6.'
 echo '  -b              desativa a impressão em negrito para o cabeçalho'
 
 echo Exemplos:
-echo ru 2 	\#Mostra o cardápio da segunda feira
-echo ru 3	\#Mostra o cardápio da terça feira
+echo ru -d 2 	\#Mostra o cardápio da segunda feira
+echo ru -d 3	\#Mostra o cardápio da terça feira
+echo ru -d seg 	\#Mostra o cardápio da segunda feira
 }
 ##################FIM DAS FUNÇÕES###########################################
 
