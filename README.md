@@ -33,7 +33,7 @@ e a seguir exibe qual o menu do dia.
 
 Se o comando for rodado novamente na mesma semana o script não precisa mais baixar o cardápio, ele lê tudo direto do arquivo 
 
-```
+```shell
 $HOME/.scripts/restaurante/ruTabela.txt
 ```
 
@@ -47,7 +47,7 @@ Criado para mostrar os menus da semada de forma organizada, esse modo só é ace
 
 O modo gráfico é ativado com o seguinte comando:
 
-```
+```shell
 $ ru -g
 ```
 
