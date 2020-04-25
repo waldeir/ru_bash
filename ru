@@ -309,7 +309,7 @@ then
 fi
 
 
-while getopts ":gbhd:" opt; do
+while getopts ":gbfhd:" opt; do
 	case "${opt}" in
 		d)
 			case "${OPTARG}" in
@@ -338,6 +338,11 @@ while getopts ":gbhd:" opt; do
 			;;
 		b)
 			BOLD=NOBOLD
+			;;
+			
+		f)
+			downloadMenu
+			isolarMenu
 			;;
 		g)
 			BOLD=NOBOLD
