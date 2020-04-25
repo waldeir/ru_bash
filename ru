@@ -252,7 +252,7 @@ if [ ! -e $RU_TABELA -o ! -e $TABELAS ]
 then
 	isolarMenu
 fi
-#########################FIM DA VERIFICAÇÃO###############################
+##########################FIM DA VERIFICAÇÃO###############################
 
 BOLD='YESBOLD' # Faz o cabeçalho ficar em negrito
 
@@ -260,45 +260,107 @@ BOLD='YESBOLD' # Faz o cabeçalho ficar em negrito
 # que 1 exibe uma mensagem de erro
 
 
-if [ $# -gt 1 ]
+#if [ $# -gt 1 ]
+#then
+#	Ajuda
+#	exit 1
+## A variável day controla o dia da semana cujo cardápio será impresso.
+## Caso o número passado pelo usuário não esteja entre 1 e 7, esta variável
+## será igualada ao dia da semana atual.
+#elif [ $1 -gt 1 -a $1 -lt 7 ] 2>/dev/null # 
+#then
+#	day=$(( $1 - 1 ))
+#
+#elif [ $# -eq 0 ]
+#then
+#	day=$(date +%u)
+#
+#elif [ $1 = '-f' ]
+#then
+#	downloadMenu
+#	isolarMenu
+#	exit 0
+#elif [ $1 = '-g' ]
+#then
+#	BOLD='NOBOLD' # Se o negrito não for desativado caracteres estranhos aparecem no modo gráfico.
+#	gru
+#	exit 0
+#elif [ $1 = '-h' -o $1 = '--help' ]
+#then
+#	Ajuda
+#	exit 0
+#elif [ $1 = '-b' ]
+#then
+#	BOLD='NOBOLD'
+#	day=$(date +%u)
+#else
+#	echo -e "Erro: Argumento '$1' inválido!\n"
+#	Ajuda
+#	exit 4
+#
+#fi
+
+str=$1
+if [[  ${str::1} != - && ! -z $str ]]
 then
 	Ajuda
-	exit 1
-# A variável day controla o dia da semana cujo cardápio será impresso.
-# Caso o número passado pelo usuário não esteja entre 1 e 7, esta variável
-# será igualada ao dia da semana atual.
-elif [ $1 -gt 1 -a $1 -lt 7 ] 2>/dev/null # 
-then
-	day=$(( $1 - 1 ))
-
-elif [ $# -eq 0 ]
-then
-	day=$(date +%u)
-
-elif [ $1 = '-f' ]
-then
-	downloadMenu
-	isolarMenu
 	exit 0
-elif [ $1 = '-g' ]
-then
-	BOLD='NOBOLD' # Se o negrito não for desativado caracteres estranhos aparecem no modo gráfico.
-	gru
-	exit 0
-elif [ $1 = '-h' -o $1 = '--help' ]
-then
-	Ajuda
-	exit 0
-elif [ $1 = '-b' ]
-then
-	BOLD='NOBOLD'
-	day=$(date +%u)
-else
-	echo -e "Erro: Argumento '$1' inválido!\n"
-	Ajuda
-	exit 4
-
 fi
+
+
+while getopts ":gbhd:" opt; do
+	case "${opt}" in
+		d)
+			case "${OPTARG}" in
+				2|seg)
+					day=1
+					;;
+				3|ter)
+					day=2
+					;;
+				4|qua)
+					day=3
+					;;
+				5|qui)
+					day=4
+					;;
+				6|sex)
+					day=5
+					;;
+				*)
+					echo "Argumento '$OPTARG' inválido para opção -$opt" 1>&2
+					exit 0
+					;;
+			esac
+					
+
+			;;
+		b)
+			BOLD=NOBOLD
+			;;
+		g)
+			BOLD=NOBOLD
+			#gru
+			#exit 0
+			;;
+
+		:)
+			echo "Opção inválida: -$OPTARG requer um argumento" 1>&2
+			;;
+		\?)
+			echo "Opção inválida: -$OPTARG" 1>&2
+			;;
+		h)
+			Ajuda
+			exit 0
+			;;
+		*)
+			Ajuda
+			exit 0
+			;;
+	esac
+done
+shift $((OPTIND-1))
 
 retornaMenu
 
