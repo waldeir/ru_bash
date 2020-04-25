@@ -11,13 +11,13 @@ Um script para baixar o cardápio do ru da ufpa e mostrá-lo em sua linha de com
 
 3. Acrescente a seguite linha no arquivo '.bashrc', que fica em seu diretório home:
 
-```
+```shell
 PATH=$PATH:~/.scripts
 ```
 4. Depois disso é só abrir um NOVO terminal, digitar 'ru' sem aspas e teclar enter;
 
 5. Para ver mais opções use o comando :
-```
+```shell
 $ ru -h
 ```
 
@@ -25,7 +25,7 @@ $ ru -h
 
 Quando você usa o comando 'ru', o script verifica se há algum cardápio no computador, se sim ele verifica se o cardápio existente é da semana atual, caso contrário, ele baixa o menu da semana inteira e armazena-o no arquivo:
 
-```
+```shell
 $HOME/.scripts/restaurante/ruTabela.txt
 ```
 
