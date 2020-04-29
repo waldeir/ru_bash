@@ -318,6 +318,11 @@ then
 	exit 0
 fi
 
+# Predefinindo a variável $day para o dia da semana atual.
+if [ -z $day ] 
+then
+	day=$(date +%u)
+fi
 
 while getopts ":gbfhd:" opt; do
 	case "${opt}" in
