@@ -208,22 +208,22 @@ done
 
 #Mostra a ajuda do programa################################################
 Ajuda() {
-echo Uso: ru [Opções][-d ARG] 
+echo Uso: ru [Opções][-d dia] 
 echo -e ''
 echo Mostra o cardápio do ru da UFPA em um dia da semana.
 echo -e ''
 echo '  -f		força baixar o cardápio atual'
 echo '  -g		entra no modo gráfico'
 echo '  -h, --help	mostra esta ajuda'
-echo '  -d ARG    	dia semana do qual o cardápio será mostrado'
+echo '  -d dia    	dia semana do qual o cardápio será mostrado'
 echo '  -b		desativa a impressão em negrito para o cabeçalho'
 echo -e ''
 echo Argumentos para -d
-echo ' 2|seg		Segunda'
-echo ' 3|ter		Teça'
-echo ' 4|qua		Quarta'
-echo ' 5|qui		Quinta'
-echo ' 6|sex		Sexta'
+echo ' 2 | seg		Segunda'
+echo ' 3 | ter		Teça'
+echo ' 4 | qua		Quarta'
+echo ' 5 | qui		Quinta'
+echo ' 6 | sex		Sexta'
 
 echo -e ''
 echo Exemplos:
