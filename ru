@@ -163,8 +163,7 @@ DIA=$(dialog --stdout --title 'RU' --default-item $DIA --menu 'Escolha o dia da 
 if [ $? -eq 1 -o $? -eq 255 ]
 then
 	clear
-	echo Tchau!
-	exit 1
+	exit 0
 elif [ $? -eq 127 ]
 then
 	echo Para usar o modo gráfico é nescessário instalar o programa dialog.
