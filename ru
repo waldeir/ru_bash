@@ -28,6 +28,7 @@ RU_TABELA=$DEST_DIR/restaurante/ruTabela.txt
 # Função que que baixa o menu e armazena num arquivo  para ser lido offline           #
 downloadMenu() {
 
+echo "Baixando Menu..."
 
 wget -q 'http://ru.ufpa.br/index.php?option=com_content&view=article&id=7' -O $INDEX
 if [ $? -ne 0 ]
