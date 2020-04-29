@@ -310,6 +310,7 @@ BOLD='YESBOLD' # Faz o cabeçalho ficar em negrito
 #
 #fi
 
+# Se o script for chamado com um argumento  ao invés de uma opção, imprima a ajuda.
 str=$1
 if [[  ${str::1} != - && ! -z $str ]]
 then
