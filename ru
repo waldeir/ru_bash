@@ -345,7 +345,7 @@ while getopts ":gbfhd:" opt; do
 					;;
 				*)
 					echo "Argumento '$OPTARG' inválido para opção -$opt" 1>&2
-					exit 0
+					exit 6
 					;;
 			esac
 					
@@ -367,9 +367,11 @@ while getopts ":gbfhd:" opt; do
 
 		:)
 			echo "Opção inválida: -$OPTARG requer um argumento" 1>&2
+			exit 3
 			;;
 		\?)
 			echo "Opção inválida: -$OPTARG" 1>&2
+			exit 4
 			;;
 		h)
 			Ajuda
@@ -377,7 +379,7 @@ while getopts ":gbfhd:" opt; do
 			;;
 		*)
 			Ajuda
-			exit 0
+			exit 5
 			;;
 	esac
 done
