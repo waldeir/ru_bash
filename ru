@@ -156,7 +156,7 @@ then
 DIA=Segunda
 fi
 
-DIA=$(dialog --stdout --title 'RU' --default-item $DIA --menu 'Escolha o dia da semana' 0 0 0 Segunda '' Terça '' Quarta '' Quinta '' Sexta '')
+DIA=$(dialog --stdout --cancel-label Sair --title 'RU' --default-item $DIA --menu 'Escolha o dia da semana' 0 0 0 Segunda '' Terça '' Quarta '' Quinta '' Sexta '')
 
 
 
