@@ -9,7 +9,7 @@ Um script para baixar o cardápio do ru da ufpa e mostrá-lo em sua linha de com
 
 2. Dê permissão de execução a este arquivo;
 
-3. Acrescente a seguite linha no arquivo '.bashrc', que fica em seu diretório home:
+3. Acrescente a seguinte linha no arquivo '.bashrc', que fica em seu diretório home:
 
 ```shell
 PATH=$PATH:~/.scripts
@@ -43,7 +43,7 @@ OBS: é possível modificar o diretório onde os arquivos serão instalados por 
 
 # Modo Gráfico
 
-Criado para mostrar os menus da semada de forma organizada, esse modo só é acessível se você tiver o programa "dialog" instalado.
+Criado para mostrar os menus da semana de forma organizada, esse modo só é acessível se você tiver o programa "dialog" instalado.
 
 O modo gráfico é ativado com o seguinte comando:
 
