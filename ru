@@ -207,7 +207,7 @@ done
 
 #Mostra a ajuda do programa################################################
 Ajuda() {
-echo Uso: ru [Opções][-d dia] 
+echo Uso: $0 [Opções][-d dia] 
 echo -e ''
 echo Mostra o cardápio do ru da UFPA em um dia da semana.
 echo -e ''
