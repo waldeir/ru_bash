@@ -20,10 +20,10 @@
 #########################FUNÇÕES USADAS NO PROGRAMA##########################
 
 #Configure o diretório padrão onde os arquivos vão ficar
-DEST_DIR="$HOME/.scripts"
-INDEX=$DEST_DIR/restaurante/index.html
-TABELAS=$DEST_DIR/restaurante/tabelas.txt
-RU_TABELA=$DEST_DIR/restaurante/ruTabela.txt
+DEST_DIR="$XDG_DATA_HOME/ru_bash"
+INDEX=$DEST_DIR/index.html
+TABELAS=$DEST_DIR/tabelas.txt
+RU_TABELA=$DEST_DIR/ruTabela.txt
 
 # Função que que baixa o menu e armazena num arquivo  para ser lido offline           #
 downloadMenu() {
@@ -240,7 +240,7 @@ echo ' ru -d seg 	#Mostra o cardápio da segunda feira'
 # A linha abaixo cria o diretório 'restaurante' se ele não existir.
 # É neste diretório que ficarão arquivos temporários que o script
 # usa.
-[ ! -e $DEST_DIR/restaurante/ ] && [ $(mkdir $DEST_DIR/restaurante/) ]
+[ ! -e $DEST_DIR ] && [ $(mkdir -p $DEST_DIR) ]
 
 ##########################VERIFICAÇÃO########################################
 #Verifica se a página do ru já foi baixada alguma vez, se não, baixa o menu.#
