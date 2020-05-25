@@ -26,7 +26,7 @@ $ ru -h
 Quando você usa o comando 'ru', o script verifica se há algum cardápio no computador, se sim ele verifica se o cardápio existente é da semana atual, caso contrário, ele baixa o menu da semana inteira e armazena-o no arquivo:
 
 ```shell
-$HOME/.scripts/restaurante/ruTabela.txt
+$XDG_DATA_HOME/ru_bash/ruTabela.txt
 ```
 
 e a seguir exibe qual o menu do dia.
@@ -34,7 +34,7 @@ e a seguir exibe qual o menu do dia.
 Se o comando for rodado novamente na mesma semana o script não precisa mais baixar o cardápio, ele lê tudo direto do arquivo 
 
 ```shell
-$HOME/.scripts/restaurante/ruTabela.txt
+$XDG_DATA_HOME/ru_bash/ruTabela.txt
 ```
 
 por isso podemos usá-lo offline. 
