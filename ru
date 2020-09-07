@@ -266,49 +266,6 @@ fi
 
 BOLD='YESBOLD' # Faz o cabeçalho ficar em negrito
 
-# Testando o número de argumentos passados ao script, se for maior 
-# que 1 exibe uma mensagem de erro
-
-
-#if [ $# -gt 1 ]
-#then
-#	Ajuda
-#	exit 1
-## A variável day controla o dia da semana cujo cardápio será impresso.
-## Caso o número passado pelo usuário não esteja entre 1 e 7, esta variável
-## será igualada ao dia da semana atual.
-#elif [ $1 -gt 1 -a $1 -lt 7 ] 2>/dev/null # 
-#then
-#	day=$(( $1 - 1 ))
-#
-#elif [ $# -eq 0 ]
-#then
-#	day=$(date +%u)
-#
-#elif [ $1 = '-f' ]
-#then
-#	downloadMenu
-#	isolarMenu
-#	exit 0
-#elif [ $1 = '-g' ]
-#then
-#	BOLD='NOBOLD' # Se o negrito não for desativado caracteres estranhos aparecem no modo gráfico.
-#	gru
-#	exit 0
-#elif [ $1 = '-h' -o $1 = '--help' ]
-#then
-#	Ajuda
-#	exit 0
-#elif [ $1 = '-b' ]
-#then
-#	BOLD='NOBOLD'
-#	day=$(date +%u)
-#else
-#	echo -e "Erro: Argumento '$1' inválido!\n"
-#	Ajuda
-#	exit 4
-#
-#fi
 
 # Se o script for chamado com um argumento  ao invés de uma opção, imprima a ajuda.
 str=$1
