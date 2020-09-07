@@ -17,7 +17,7 @@
 #	
 #	4. Depois disso é só abrir um NOVO terminal, digitar "ru" sem aspas e dar enter.
 
-#########################FUNÇÕES USADAS NO PROGRAMA##########################
+#########################FUNÇÕES USADAS NO PROGRAMA############################
 
 #Configure o diretório padrão onde os arquivos vão ficar
 DEST_DIR="$XDG_DATA_HOME/ru_bash"
@@ -40,7 +40,7 @@ fi
 }
 
 
-# Isolando as tabelas da página do resto do html#############################
+#############Isolando as tabelas da página do resto do html####################
 isolarMenu() {
 sed -n '/<tbody>/,/<\/tbody>/p'  $INDEX|
 sed 's/<tbody>/Itbody/g
@@ -146,7 +146,7 @@ done
 
 }
 
-#Função para Entrar no modo gráfico#############################################
+######################Função para Entrar no modo gráfico#######################
 gru() {
 while [ 0 -eq 0 ]
 do
@@ -205,7 +205,7 @@ eval dialog --title 'Cardápio' --msgbox \' "$MENU" \' 0 0
 done
 }
 
-#Mostra a ajuda do programa################################################
+#####################Mostra a ajuda do programa################################
 Ajuda() {
 echo Uso: $0 [Opções][-d dia] 
 echo -e ''
@@ -230,22 +230,24 @@ echo ' ru -d 2 	#Mostra o cardápio da segunda feira'
 echo ' ru -d 3	#Mostra o cardápio da terça feira'
 echo ' ru -d seg 	#Mostra o cardápio da segunda feira'
 }
-##################FIM DAS FUNÇÕES###########################################
+##############################FIM DAS FUNÇÕES##################################
 
 
-#====================#
-#	INÍCIO       #
-#====================#
+#=============================================================================#
+#                                 INÍCIO                                      #
+#=============================================================================#
+
+
 
 # A linha abaixo cria o diretório 'restaurante' se ele não existir.
 # É neste diretório que ficarão arquivos temporários que o script
 # usa.
 [ ! -e $DEST_DIR ] && [ $(mkdir -p $DEST_DIR) ]
 
-##########################VERIFICAÇÃO########################################
-#Verifica se a página do ru já foi baixada alguma vez, se não, baixa o menu.#
-#Verifica se o último cardápio baixado é dessa semana, caso contrário,      #
-#baixa o cardápio atual.                                                    #
+############################VERIFICAÇÃO########################################
+#Verifica se a página do ru já foi baixada alguma vez, se não, baixa o menu.  #
+#Verifica se o último cardápio baixado é dessa semana, caso contrário,        #
+#baixa o cardápio atual.                                                      #
 
 if  [ ! -e $INDEX ]
 then
@@ -262,12 +264,13 @@ if [ ! -e $RU_TABELA -o ! -e $TABELAS ]
 then
 	isolarMenu
 fi
-##########################FIM DA VERIFICAÇÃO###############################
+###########################FIM DA VERIFICAÇÃO##################################
 
 BOLD='YESBOLD' # Faz o cabeçalho ficar em negrito
 
 
-# Se o script for chamado com um argumento  ao invés de uma opção, imprima a ajuda.
+# Se o script for chamado com um argumento  ao invés de uma opção, 
+# imprima a ajuda.
 str=$1
 if [[  ${str::1} != - && ! -z $str ]]
 then
