@@ -323,7 +323,7 @@ while getopts ":gbfhd:" opt; do
 			isolarMenu
 			;;
 		g)
-			BOLD=NOBOLD # precisa desbilitar o negrito para inprimir corretamenteos caracteres.
+			BOLD=NOBOLD # precisa desbilitar o negrito para imprimir corretamenteos caracteres.
 
 			gru
 			;;
