@@ -281,6 +281,9 @@ then
 	day=$(date +%u)
 fi
 
+
+# A interpretação dos argumentos do comando é feita com o getopts
+
 while getopts ":gbfhd:" opt; do
 	case "${opt}" in
 		d)
