@@ -75,7 +75,8 @@ do
         fi
 done
 
-sed -n "$RUTableIN,$RUTableEND p" $TABELAS > $RU_TABELA
+# Eliminando tabs do texto antes de salvar a tabela
+sed -n "$RUTableIN,$RUTableEND p" $TABELAS |sed "s/\t//g"> $RU_TABELA
 }
 
 ###############################################################################
@@ -126,6 +127,7 @@ MENUDODIA=`sed -n "${LINESI[$L]},${LINESF[$L]} p" $RU_TABELA`
 
 COLUNASI=(`echo "${MENUDODIA}"|sed -n '/I+/='`)
 COLUNASF=(`echo "${MENUDODIA}"|sed -n '/F+/='`)
+
 
 
 CABECALHO=(DIA: ALMOÇO: JANTAR:)
