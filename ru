@@ -30,7 +30,7 @@ downloadMenu() {
 
 echo "Baixando Menu..."
 
-wget -q 'http://ru.ufpa.br/index.php?option=com_content&view=article&id=7' -O $INDEX
+wget -q 'https://saest.ufpa.br/ru/index.php/component/cardapio/' -O $INDEX
 if [ $? -ne 0 ]
 then
 	rm $INDEX
