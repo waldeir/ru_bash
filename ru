@@ -37,6 +37,9 @@ then
 	echo Erro ao baixar o novo menu. A página do restaurante pode estar indisponível ou você não tem internet.
 	exit 2
 fi
+
+# Corrigindo tag de tabela que está errado no site
+sed -i "s/\t<tbody>/\t<\/tbody>/g" $INDEX
 }
 
 
