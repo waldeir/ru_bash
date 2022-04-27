@@ -34,7 +34,7 @@ wget -q 'https://saest.ufpa.br/ru/index.php/component/cardapio/' -O $INDEX 2> /d
 if [ $? -ne 0 ]
 then
 	rm $INDEX
-	echo Erro ao baixar o novo menu. A página do restaurante pode estar indisponível ou você não tem internet.
+	echo Erro ao baixar o novo menu. A página do restaurante pode estar indisponível, você não tem internet ou o wget não está instalado.
 	exit 2
 fi
 
