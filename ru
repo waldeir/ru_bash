@@ -267,7 +267,7 @@ echo ' ru -d seg 	#Mostra o cardápio da segunda feira'
 
 
 
-# A linha abaixo cria o diretório 'restaurante' se ele não existir.
+# A linha abaixo cria o diretório DEST_DIR se ele não existir.
 # É neste diretório que ficarão arquivos temporários que o script
 # usa.
 [ ! -e $DEST_DIR ] && [ $(mkdir -p $DEST_DIR) ]
