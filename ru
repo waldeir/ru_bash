@@ -77,6 +77,7 @@ sed 's/<tbody>/Itbody/g
     s/<\/td[^>]*>/F+/g
     s/<[^>]*>//g
     s/\r//g
+    s/;/;\n/g
     s/^ *//g
     /^$/d' > $TABELAS
 # Encontrando e isolando a tabela do ru
