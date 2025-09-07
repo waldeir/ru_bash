@@ -20,10 +20,33 @@
 #########################FUNÇÕES USADAS NO PROGRAMA############################
 
 #Configure o diretório padrão onde os arquivos vão ficar
-DEST_DIR="$XDG_DATA_HOME/ru_bash"
+DEST_DIR=""
+
+
+
+
+
+
+
+########################VALIDANDO $DEST_DIR###################################
+
+# Se você não definir o diretório para onde o menu da semana será baixado,
+# DEST_DIR, o sistema define ele para o valor de XDG_DATA_HOME, e caso essa
+# variável não esteja definida, o script inicia DEST_DIR como
+# "$HOME/.local/share", que é o valor normalmente escolhido para XDG_DATA_HOME.
+
+if [ -z ${DEST_DIR} ] && [ -z ${XDG_DATA_HOME} ]; 
+then
+  DEST_DIR="$HOME/.local/share"
+else
+  DEST_DIR=$XDG_DATA_HOME
+fi
+
+
 INDEX=$DEST_DIR/index.html
 TABELAS=$DEST_DIR/tabelas.txt
 RU_TABELA=$DEST_DIR/ruTabela.txt
+
 
 # Função que que baixa o menu e armazena num arquivo  para ser lido offline           #
 downloadMenu() {
