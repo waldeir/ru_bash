@@ -80,7 +80,8 @@ sed 's/<tbody>/Itbody/g
     s/^ *//g
     /^$/d' > $TABELAS
 # Encontrando e isolando a tabela do ru
-# Assumindo que a maior tabela é a correta 
+# O site exibe duas tabelas, uma pequena para o menu do dia e outra grande com
+# o menu da semana. Vamos isolar o menu da semana.
 
 INITS=$(sed -n '/Itbody/=' $TABELAS)
 ENDS=$(sed -n '/Ftbody/=' $TABELAS)
