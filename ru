@@ -53,12 +53,15 @@ downloadMenu() {
 
 echo "Baixando Menu..."
 
-wget -q 'https://saest.ufpa.br/ru/index.php/component/cardapio/' -O $INDEX 2> /dev/null
-if [ $? -ne 0 ]
+# wget -q 'https://saest.ufpa.br/ru/index.php/component/cardapio/' -O $INDEX 2> /dev/null
+if [ $? -ne 1 ]
 then
-	rm $INDEX
-	echo Erro ao baixar o novo menu. A página do restaurante pode estar indisponível, você não tem internet ou o wget não está instalado.
-	exit 2
+  rm $INDEX
+  echo "Erro ao baixar o novo menu, verifique se:"
+  echo "  - A página do restaurante está disponível;"
+  echo "  - Você tem internet;"
+  echo "  - O wget está instalado."
+  exit 2
 fi
 
 # Corrigindo tag de tabela que está errado no site
