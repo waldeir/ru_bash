@@ -53,14 +53,18 @@ downloadMenu() {
 
 echo "Baixando Menu..."
 
-# wget -q 'https://saest.ufpa.br/ru/index.php/component/cardapio/' -O $INDEX 2> /dev/null
-if [ $? -ne 1 ]
+curl -s --connect-timeout 15 'https://saest.ufpa.br/ru/index.php/component/cardapio/' -o $INDEX 2> /dev/null
+
+# se quiser usar proxy socks 5
+# curl -s --connect-timeout 15 --socks5 127.0.0.1:port 'https://saest.ufpa.br/ru/index.php/component/cardapio/' -o $INDEX 2> /dev/null
+
+if [ $? -ne 0 ]
 then
-  rm $INDEX
+  rm $INDEX 2> /dev/null
   echo "Erro ao baixar o novo menu, verifique se:"
   echo "  - A página do restaurante está disponível;"
   echo "  - Você tem internet;"
-  echo "  - O wget está instalado."
+  echo "  - O programa curl está instalado."
   exit 2
 fi
 
